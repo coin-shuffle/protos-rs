@@ -4,6 +4,6 @@ macro_rules! include_proto {
     };
 }
 
-mod v1 {
+pub mod v1 {
     include_proto!("coin_shuffle.v1");
 }
