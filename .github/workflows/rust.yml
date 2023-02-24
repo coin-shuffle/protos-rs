@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add SSH private keys for submodule repositories
-        uses: webfactory/ssh-agent@0.7.0
+        uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.SSH_PROTOBUF_KEY }}
 
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add SSH private keys for submodule repositories
-        uses: webfactory/ssh-agent@0.7.0
+        uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.SSH_PROTOBUF_KEY }}
 
