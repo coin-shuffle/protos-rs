@@ -4,10 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
-default = ["server", "client-with-transport"]
-server = ["tonic/transport"]
+default = ["server", "client", "transport"]
+transport = ["tonic/transport", "tonic-build/transport"]
+server = ["transport"]
 client = []
-client-with-transport = ["client", "tonic/transport"]
 
 [dependencies]
 prost = "0.11.5"
