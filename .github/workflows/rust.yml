@@ -4,7 +4,7 @@ name: Build and lint
 
 jobs:
   build:
-    name: Check
+    name: Build protos
     runs-on: ubuntu-latest
     steps:
       - name: Add SSH private keys for submodule repositories
@@ -30,7 +30,7 @@ jobs:
           command: build
 
   lints:
-    name: Lints
+    name: Use clippy to lint
     runs-on: ubuntu-latest
     steps:
       - name: Add SSH private keys for submodule repositories
