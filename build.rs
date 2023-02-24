@@ -1,11 +1,14 @@
-fn main() -> anyhow::Result<()> {
+use eyre::Context;
+
+fn main() -> eyre::Result<()> {
     tonic_build::configure()
         .build_client(cfg!(feature = "client"))
         .build_server(cfg!(feature = "server"))
         .compile(
             &[proto_path("v1", "shuffle_service")],
             &[format!("{}/v1", COIN_SHUFFLE_PROTO)],
-        )?;
+        )
+        .context("failed to build protos")?;
 
     Ok(())
 }

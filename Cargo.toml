@@ -4,16 +4,20 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
-default = ["server", "client"]
-server = []
+default = ["server"]
+server = ["tonic/transport"]
 client = []
 
 [dependencies]
-prost = "0.8"
-prost-types = "0.8"
-tonic = "0.5"
+prost = "0.11.5"
+tonic = { version = "0.8.3", default-features = false, features = [
+    "prost",
+    "codegen",
+] }
+
 
 [build-dependencies]
-prost-build = "0.8"
-tonic-build = "0.5"
-anyhow = "1"
+tonic-build = { version = "0.8.4", default-features = false, features = [
+    "prost",
+] }
+eyre = "0.6.8"
