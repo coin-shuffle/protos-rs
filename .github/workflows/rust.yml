@@ -3,14 +3,19 @@ on: [pull_request]
 name: Rust
 
 jobs:
-  check:
+  build:
     name: Check
     runs-on: ubuntu-latest
     steps:
+      - name: Add SSH private keys for submodule repositories
+        uses: webfactory/ssh-agent@0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PROTOBUF_KEY }}
+
       - name: Checkout sources
         uses: actions/checkout@v2
         with:
-          submodules: recursive
+          submodules: true
 
       - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
@@ -22,7 +27,7 @@ jobs:
       - name: Run cargo check
         uses: actions-rs/cargo@v1
         with:
-          command: check
+          command: build
 
   test:
     name: Test Suite
