@@ -1,0 +1,24 @@
+[package]
+name = "coin-shuffle-protos"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["server", "client", "transport"]
+transport = ["tonic/transport", "tonic-build/transport"]
+server = ["transport"]
+client = []
+
+[dependencies]
+prost = "0.11.5"
+tonic = { version = "0.8.3", default-features = false, features = [
+    "prost",
+    "codegen",
+] }
+
+
+[build-dependencies]
+tonic-build = { version = "0.8.4", default-features = false, features = [
+    "prost",
+] }
+eyre = "0.6.8"

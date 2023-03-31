@@ -1,0 +1,4 @@
+[submodule "protobuf"]
+	path = protobuf
+	url = git@github.com:coin-shuffle/protobuf.git
+	branch = v0.1.0-alpha
